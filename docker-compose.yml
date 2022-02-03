@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: python main.py
+    volumes:
+      - mailsend_server:/usr/src/app/
+    ports:
+      - 8081:8081
+    env_file:
+      - ./config.ini
+
+volumes:
+  mailsend_server:
